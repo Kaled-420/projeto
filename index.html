@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN · streetwear</title>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            color: #f0f0f0;
+            line-height: 1.5;
+        }
+
+        /* container principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid #2a2a2a;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #f5af19, #f12711);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+        }
+
+        .logo i {
+            -webkit-text-fill-color: #f5af19;
+            margin-right: 6px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav a:hover {
+            color: #f5af19;
+            border-bottom-color: #f5af19;
+        }
+
+        .nav i {
+            margin-right: 6px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 60px 0 50px;
+            background: radial-gradient(circle at 20% 30%, #1f1f1f, #0a0a0a);
+            border-radius: 32px;
+            margin: 32px 0 48px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            max-width: 800px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(145deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #b0b0b0;
+            max-width: 650px;
+            margin: 24px 0 32px;
+            font-weight: 300;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            background: #2a2a2a;
+            border: none;
+            padding: 14px 38px;
+            border-radius: 60px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #3a3a3a;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f5af19, #f12711);
+            border: none;
+            color: #0f0f0f;
+            box-shadow: 0 8px 18px rgba(241, 39, 17, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 28px rgba(241, 39, 17, 0.5);
+        }
+
+        .btn-outline:hover {
+            background: #3a3a3a;
+            border-color: #f5af19;
+            color: #f5af19;
+        }
+
+        /* ===== SEÇÃO DESTAQUE ===== */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 56px 0 28px;
+            letter-spacing: -0.5px;
+            border-left: 6px solid #f5af19;
+            padding-left: 20px;
+            text-transform: uppercase;
+        }
+
+        .section-title i {
+            color: #f5af19;
+            margin-right: 12px;
+        }
+
+        .grid-street {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: 24px;
+            padding: 26px 20px 30px;
+            transition: 0.25s ease;
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #f5af19;
+            background: #202020;
+        }
+
+        .card i {
+            font-size: 3.2rem;
+            color: #f5af19;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #b8b8b8;
+            font-size: 1rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #2f2f2f;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 16px;
+            color: #f5af19;
+            border: 1px solid #3a3a3a;
+        }
+
+        /* ===== GALERIA ===== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 32px 0 56px;
+        }
+
+        .gallery-item {
+            background: #1a1a1a;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #444;
+            border: 1px solid #2a2a2a;
+            transition: 0.2s;
+            position: relative;
+            background: linear-gradient(145deg, #222, #111);
+        }
+
+        .gallery-item i {
+            font-size: 4.5rem;
+            color: #3a3a3a;
+            transition: 0.2s;
+        }
+
+        .gallery-item:hover {
+            border-color: #f5af19;
+            transform: scale(1.02);
+        }
+
+        .gallery-item:hover i {
+            color: #f5af19;
+            text-shadow: 0 0 20px #f5af1960;
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, #0f0f0f);
+            padding: 20px 12px 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.5px;
+            color: #ddd;
+        }
+
+        /* ===== QUOTE ===== */
+        .quote-block {
+            background: #161616;
+            border-radius: 40px;
+            padding: 40px 30px;
+            margin: 40px 0 56px;
+            border-left: 8px solid #f5af19;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quote-block blockquote {
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-style: italic;
+            color: #d0d0d0;
+            max-width: 700px;
+        }
+
+        .quote-block blockquote i {
+            color: #f5af19;
+            margin-right: 8px;
+        }
+
+        .quote-block .author {
+            font-style: normal;
+            font-weight: 700;
+            color: #f5af19;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+            display: block;
+        }
+
+        .quote-block .btn {
+            background: transparent;
+            border-color: #f5af19;
+            color: #f5af19;
+            padding: 12px 28px;
+        }
+
+        .quote-block .btn:hover {
+            background: #f5af19;
+            color: #0f0f0f;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            border-top: 1px solid #2a2a2a;
+            padding: 32px 0 24px;
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer .social i {
+            font-size: 1.6rem;
+            margin-left: 20px;
+            color: #555;
+            transition: 0.2s;
+        }
+
+        .footer .social i:hover {
+            color: #f5af19;
+            transform: translateY(-3px);
+        }
+
+        .footer a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #f5af19;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 700px) {
+            .header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                gap: 16px 20px;
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 8px;
+            }
+
+            .quote-block {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .footer .social i {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-city"></i> URBAN
+            </div>
+            <nav class="nav">
+                <a href="#"><i class="fas fa-tshirt"></i> street</a>
+                <a href="#"><i class="fas fa-shoe-prints"></i> sneakers</a>
+                <a href="#"><i class="fas fa-music"></i> beats</a>
+                <a href="#"><i class="fas fa-paint-brush"></i> art</a>
+            </nav>
+        </header>
+
+        <!-- HERO -->
+        <section class="hero">
+            <h1>cultura <span>streetwear</span> <br>urbana</h1>
+            <p>Moda, atitude, grafite, beats e autenticidade. A rua é o nosso runway.</p>
+            <div class="btn-group">
+                <button class="btn btn-primary"><i class="fas fa-store"></i> coleção drop</button>
+                <button class="btn btn-outline"><i class="fas fa-play-circle"></i> ver mais</button>
+            </div>
+        </section>
+
+        <!-- DESTAQUES -->
+        <h2 class="section-title"><i class="fas fa-crown"></i> pilares da cultura</h2>
+        <div class="grid-street">
+            <div class="card">
+                <i class="fas fa-tshirt"></i>
+                <h3>Streetwear</h3>
+                <p>O estilo que nasce nas ruas, com peças oversized, estampas fortes e atitude.</p>
+                <span class="tag">#modaurbana</span>
+            </div>
+            <div class="card">
+                <i class="fas fa-shoe-prints"></i>
+                <h3>Sneakerheads</h3>
+                <p>Os tênis como obra de arte. Colecionismo, exclusividade e cultura de fila.</p>
+                <span class="tag">#sneakerculture</span>
+            </div>
+            <div class="card">
+                <i class="fas fa-headphones"></i>
+                <h3>Hip Hop</h3>
+                <p>Rap, beats e poesia urbana. A trilha sonora que move a quebrada.</p>
+                <span class="tag">#hiphop</span>
+            </div>
+            <div class="card">
+                <i class="fas fa-spray-can"></i>
+                <h3>Grafite</h3>
+                <p>Arte nos muros, expressão visual, cores e críticas que transformam a cidade.</p>
+                <span class="tag">#streetart</span>
+            </div>
+        </div>
+
+        <!-- GALERIA visual (ícones + legenda) -->
+        <h2 class="section-title"><i class="fas fa-image"></i> vibes urbanas</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <i class="fas fa-shopping-bag"></i>
+                <div class="overlay">drop exclusivo</div>
+            </div>
+            <div class="gallery-item">
+                <i class="fas fa-sneaker"></i>
+                <div class="overlay">edição limitada</div>
+            </div>
+            <div class="gallery-item">
+                <i class="fas fa-microphone"></i>
+                <div class="overlay">cypher na rua</div>
+            </div>
+            <div class="gallery-item">
+                <i class="fas fa-palette"></i>
+                <div class="overlay">mural art</div>
+            </div>
+            <div class="gallery-item">
+                <i class="fas fa-skateboard"></i>
+                <div class="overlay">skate culture</div>
+            </div>
+            <div class="gallery-item">
+                <i class="fas fa-record-vinyl"></i>
+                <div class="overlay">vinyl & beats</div>
+            </div>
+        </div>
+
+        <!-- QUOTE / DESTAQUE -->
+        <div class="quote-block">
+            <blockquote>
+                <i class="fas fa-quote-left"></i> A rua é a maior passarela. Cada esquina tem uma história, cada look é um manifesto.
+                <span class="author">— cultura urbana</span>
+            </blockquote>
+            <button class="btn"><i class="fas fa-ticket-alt"></i> eventos</button>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div>
+                <strong style="color:#f5af19;">URBAN</strong> · streetwear culture <br>
+                <span style="font-size:0.8rem;">© 2026 · todos os looks são atitude</span>
+            </div>
+            <div class="social">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-tiktok"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-spotify"></i>
+                <a href="#" style="margin-left:12px;"><i class="fas fa-envelope"></i></a>
+            </div>
+        </footer>
+
+    </div> <!-- container -->
+</body>
+</html>
